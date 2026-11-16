@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -12,7 +13,13 @@ sns.set_theme(style="whitegrid")
 # Helper function untuk memuat data
 @st.cache_data
 def load_data():
-    df = pd.read_csv("main_data.csv")
+    # Mengambil direktori tempat file dashboard.py ini berada
+    current_dir = os.path.dirname(__file__)
+    
+    # Menggabungkan path direktori dengan nama file CSV
+    file_path = os.path.join(current_dir, "main_data.csv")
+    
+    df = pd.read_csv(file_path)
     df['datetime'] = pd.to_datetime(df['datetime'])
     return df
 
