@@ -12,7 +12,7 @@ sns.set_theme(style="whitegrid")
 @st.cache_data
 def load_data():
     current_dir = os.path.dirname(__file__)
-    file_path = os.path.join(current_dir, "main_data.csv")
+    file_path = os.path.join(current_dir, "main_data.csv.gz")
     df = pd.read_csv(file_path)
     
     if 'datetime' in df.columns:
